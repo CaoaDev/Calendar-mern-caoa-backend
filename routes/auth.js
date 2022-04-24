@@ -11,17 +11,17 @@ const { validarCampos } = require('../middlewares/validarCampos.js');
 const router = Router ();
 router.post( '/',
     [ // Middlewares
-        check( 'email' ,'Revisar el em@il' ).isEmail(),
-        check( 'password' ,'El password es necesario y tiene que tener mas de 4 caracteres' ).not().isEmpty().isLength({ min: 4 }), 
+        check( 'email', 'Revisar el em@il' ).isEmail(),
+        check( 'password', 'El password es necesario y tiene que tener mas de 4 caracteres' ).not().isEmpty().isLength({ min: 4 }), 
         validarCampos
     ],
     login );
 router.post( '/regis', 
     [ // Middlewares
-        check( 'name' ,'El nombre es necesario y tiene que tener mas de 4 caracteres' ).not().isEmpty().isLength({ min: 4 }),
-        check( 'email' ,'El em@il no es valido' ).isEmail(),
-        check( 'password' ,'El password es necesario y tiene que tener mas de 4 caracteres' ).not().isEmpty().isLength({ min: 4 }),
-        check( 'avatar' ,'El avatar es necesario' ).not().isEmpty(),
+        check( 'name', 'El nombre es necesario y tiene que tener mas de 4 caracteres' ).not().isEmpty().isLength({ min: 4 }),
+        check( 'email', 'El em@il no es valido' ).isEmail(),
+        check( 'avatar', 'El avatar es necesario' ).not().isEmpty(),
+        check( 'password', 'El password es necesario y tiene que tener mas de 4 caracteres' ).not().isEmpty() .isLength({ min: 4 }),
         // check( 'date' ,'La fecha es necesaria' ).isDate(),
         validarCampos
     ],
